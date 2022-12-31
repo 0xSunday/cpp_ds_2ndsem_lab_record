@@ -41,7 +41,7 @@ int main()
 {
   struct Array arr = {{1, 2, 3, 4, 5}, 10, 5};
   insert(&arr, 12, 3);
-  delete(&arr,  0);
+  delete (&arr, 0);
   display(arr);
 
   return 0;
