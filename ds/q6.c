@@ -1,4 +1,4 @@
-// Array implementation of Linear Queue.
+// Array implementation of Circular Queue.
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -12,25 +12,30 @@ struct Queue
 void create(struct Queue *q, int size)
 {
   q->size = size;
-  q->front = q->rear = -1;
+  q->front = q->rear = 0;
   q->Q = (int *)malloc(q->size * sizeof(int));
 }
 void enqueue(struct Queue *q, int x)
 {
-  if (q->rear == q->size - 1)
+  if ((q->rear + 1) % q->size == q->front)
     printf("Queue is Full");
   else
   {
-    q->rear++;
+    q->rear = (q->rear + 1) % q->size;
     q->Q[q->rear] = x;
   }
 }
 void Display(struct Queue q)
 {
-  int i;
+  int i = q.front + 1;
 
-  for (i = q.front + 1; i <= q.rear; i++)
+  do
+  {
+
     printf("%d ", q.Q[i]);
+    i = (i + 1) % q.size;
+  } while (i != (q.rear + 1) % q.size);
+
   printf("\n");
 }
 int main()
@@ -41,6 +46,8 @@ int main()
   enqueue(&q, 10);
   enqueue(&q, 20);
   enqueue(&q, 30);
+  enqueue(&q, 40);
+
   Display(q);
 
   return 0;
