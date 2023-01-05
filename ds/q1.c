@@ -33,14 +33,17 @@ void display(struct Array arr)
 {
   for (int i = 0; i < arr.length; i++)
   {
-    printf("%d \n", arr.A[i]);
+    printf("%d\t", arr.A[i]);
   }
 }
 
 int main()
 {
   struct Array arr = {{1, 2, 3, 4, 5}, 10, 5};
+
   insert(&arr, 12, 3);
+  display(arr);
+  printf(" \nafter deleting \n");
   delete (&arr, 0);
   display(arr);
 

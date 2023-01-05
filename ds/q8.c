@@ -98,7 +98,7 @@ void display()
 
   do
   {
-    printf("%d \n", p->data);
+    printf("%d \t", p->data);
     p = p->next;
   } while (p != head);
 }
@@ -113,7 +113,7 @@ int main()
   insert(5, 6);
   display();
 
-  printf("the deleted value is %d \n", delete (5));
+  printf(" \n the deleted value is %d \n", delete (5));
   display();
 
   return 0;

@@ -32,7 +32,7 @@ void Display()
   struct Node *p = front;
   while (p)
   {
-    printf("%d \n", p->data);
+    printf("%d \t", p->data);
     p = p->next;
   }
   printf("\n");

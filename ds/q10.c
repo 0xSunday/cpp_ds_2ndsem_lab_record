@@ -27,7 +27,7 @@ void Display()
   p = top;
   while (p != NULL)
   {
-    printf("%d ", p->data);
+    printf("%d \t ", p->data);
     p = p->next;
   }
   printf("\n");

@@ -32,7 +32,7 @@ void Display(struct Queue q)
   do
   {
 
-    printf("%d ", q.Q[i]);
+    printf("%d \t ", q.Q[i]);
     i = (i + 1) % q.size;
   } while (i != (q.rear + 1) % q.size);
 

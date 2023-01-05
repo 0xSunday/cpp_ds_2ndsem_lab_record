@@ -30,7 +30,7 @@ void Display(struct Queue q)
   int i;
 
   for (i = q.front + 1; i <= q.rear; i++)
-    printf("%d ", q.Q[i]);
+    printf("%d \t", q.Q[i]);
   printf("\n");
 }
 int main()

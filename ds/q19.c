@@ -1,56 +1,64 @@
-// . To perform Quick sort. 
+// Quick sort in C
 
 #include <stdio.h>
-#include <stdlib.h>
-void swap(int *x, int *y)
-{
-  int temp = *x;
-  *x = *y;
-  *y = temp;
-}
-int partition(int A[], int l, int h)
-{
-  int pivot = A[l];
-  int i = l, j = h;
 
-  do
+void swap(int *a, int *b)
+{
+  int t = *a;
+  *a = *b;
+  *b = t;
+}
+
+int partition(int array[], int low, int high)
+{
+
+  int pivot = array[high];
+
+  int i = (low - 1);
+
+  for (int j = low; j < high; j++)
   {
-    do
+    if (array[j] <= pivot)
     {
+
       i++;
-    } while (A[i] <= pivot);
-    do
-    {
-      j--;
-    } while (A[j] > pivot);
 
-    if (i < j)
-      swap(&A[i], &A[j]);
-  } while (i < j);
+      swap(&array[i], &array[j]);
+    }
+  }
 
-  swap(&A[l], &A[j]);
-  return j;
+  swap(&array[i + 1], &array[high]);
+
+  return (i + 1);
 }
-void QuickSort(int A[], int l, int h)
-{
-  int j;
 
-  if (l < h)
+void quickSort(int array[], int low, int high)
+{
+  if (low < high)
   {
-    j = partition(A, l, h);
-    QuickSort(A, l, j);
-    QuickSort(A, j + 1, h);
+    int pi = partition(array, low, high);
+
+    quickSort(array, low, pi - 1);
+
+    quickSort(array, pi + 1, high);
   }
 }
+
+void display(int array[], int size)
+{
+  for (int i = 0; i < size; ++i)
+  {
+    printf("%d\t ", array[i]);
+  }
+}
+
 int main()
 {
-  int A[] = {11, 13, 7, 12, 16, 9, 24, 5, 10, 3}, n = 10, i;
+  int data[] = {11, 13, 7, 12, 16, 9, 24, 5, 10, 3};
 
-  QuickSort(A, n, 5);
+  int n = sizeof(data) / sizeof(data[0]);
 
-  for (i = 0; i < 10; i++)
-    printf("%d ", A[i]);
-  printf("\n");
+  quickSort(data, 0, n - 1);
 
-  return 0;
+  display(data, n);
 }

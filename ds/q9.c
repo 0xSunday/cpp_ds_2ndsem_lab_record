@@ -101,7 +101,7 @@ void display(struct Node *p)
 {
   while (p != NULL)
   {
-    printf("%d \n", p->data);
+    printf("%d \t", p->data);
     p = p->next;
   }
 }
@@ -116,7 +116,7 @@ int main()
 
   display(first);
 
-  printf("deleted value is %d \n", deleteDoubly(4));
+  printf("\n deleted value is %d \n", deleteDoubly(4));
   display(first);
   return 0;
 }

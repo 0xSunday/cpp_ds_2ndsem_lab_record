@@ -1,6 +1,6 @@
 // To delete all occurrence of an element in an array.
-#include <stdio.h>
 
+#include <stdio.h>
 struct Array
 {
   int A[10];
@@ -16,7 +16,7 @@ int remove_element(struct Array *arr, int val)
   for (i = 0; i < arr->length; i++)
 
     if (arr->A[i] != val)
-      printf("%d ", arr->A[i]);
+      printf("%d \t", arr->A[i]);
 }
 
 int main()

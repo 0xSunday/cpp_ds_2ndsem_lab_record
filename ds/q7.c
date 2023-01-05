@@ -97,7 +97,7 @@ void display()
   p = first;
   while (p != 0)
   {
-    printf("%d \n", p->data);
+    printf("%d \t", p->data);
     p = p->next;
   }
 }
@@ -112,17 +112,17 @@ int main()
   insert(5, 6);
   display();
 
-  printf("the deleted value is %d \n", delete (2));
+  printf("\n the deleted value is %d \n", delete (2));
   display();
 
   struct Node *temp = Search(4);
   if (temp)
   {
-    printf("value is found,the value is %d \n", temp->data);
+    printf("\nthe value is %d \n", temp->data);
   }
   else
   {
-    printf("value is not found \n");
+    printf("\n value is not found \n");
   }
 
   Reverse();
