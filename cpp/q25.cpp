@@ -20,7 +20,7 @@ class Derived : public Base {
 
 int main() {
   Base* b = new Derived(10);
-  delete b;  // Calls the destructor of Derived
+  delete b;  
 
   return 0;
 }
